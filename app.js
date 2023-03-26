@@ -1,4 +1,5 @@
-const x=document.getElementById('main');
-const y=document.createElement('h1');
-y.innerHTML="hello world!!!!!!!";
-x.appendChild(y);
+
+const y=React.createElement("h1",{},"hello form react");
+
+const root=ReactDOM.createRoot(document.getElementById('root'));
+root.render(y);
