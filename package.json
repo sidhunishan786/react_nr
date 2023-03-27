@@ -1,0 +1,32 @@
+{
+  "name": "react_nr",
+  "version": "1.0.0",
+  "description": "this is namastereact by AS",
+  
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sidhunishan786/react_nr.git"
+  },
+  "keywords": [],
+  "author": "Nishan singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sidhunishan786/react_nr/issues"
+  },
+  "homepage": "https://github.com/sidhunishan786/react_nr#readme",
+  "dependencies": {
+    "parcel": "^2.8.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "process": "^0.11.10"
+  },
+  "browserslist":[
+    "last 2 version"  
+
+  ]
+}
