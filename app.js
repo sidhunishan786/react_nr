@@ -22,47 +22,24 @@ const Header=()=>{
   );
 }
 
-const RestaurantCard=(name,rating,eta,foodlist)=>{
+const RestaurantCard=(props)=>{
+  console.log(props);
   return (
     <div className="res-card">
       <img className="res-logo" src="https://th.bing.com/th/id/OIP.maQpFJiRuDMauaTZ3N7KiQHaEo?pid=ImgDet&rs=1" /> 
-      <h3>{name}</h3>
-      <h4>{foodlist}</h4>
-      <h4>{rating}</h4>
-      <h4>{eta}</h4>
+      <h3>{props.name}</h3>
+      <h4>{props.foodls}</h4>
+      <h4>{props.rating}</h4>
+      <h4>{props.eta}</h4>
       
       
     </div>
   );
 }
-const resname=['foodpoint','isa','rest','hehe','chd','foodpoint','isa','rest','hehe','chd'];
-const rating=['1','2','3','4','5','1','2','3','4','5'];
-const eta=['12','14','34','345','23','12','14','34','345','23'];
-const foodls=['asian','north'];
 
-function helparray(i) {
-  return (
-    <div>
-      {RestaurantCard(resname[i],rating[i],eta[i],foodls)}
-    </div>
 
-  );
-}
 
-const  mainfun=()=>{
-  const ls=[];
-  for (let index = 0; index < resname.length; index++) {
-    console.log(helparray(index));
-    ls.push(helparray(index));
-    
-  }
-  return (
-    <div className="res-container">
-      {ls}
-    </div>
-  );
 
-}
 
 
 const Body=()=>{
@@ -71,11 +48,8 @@ const Body=()=>{
       <div className="search">
         search
       </div>
-      <div className="res-container1">
-        {
-        mainfun()                 
-
-        }
+      <div className="res-container">
+        <RestaurantCard name="meghna foods" rating="5.6" eta="28min" foodls="north asian"/>
         
       </div>
     </div>
