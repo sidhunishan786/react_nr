@@ -2182,7 +2182,7 @@ const Header=()=>{
   <div id="restaurants">
     {
       reslist.map((res)=>{
-        return <RestaurantCard resData={res}/>
+        return <RestaurantCard key={res.data.id} resData={res}/>
       })
     }
 
