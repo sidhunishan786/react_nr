@@ -2178,22 +2178,38 @@ const Header=()=>{
     <img id="user" src="https://i.pinimg.com/736x/64/81/22/6481225432795d8cdf48f0f85800cf66.jpg"/>
 
   </div>
-
-  <div id="restaurants">
-    {
-      reslist.map((res)=>{
-        return <RestaurantCard key={res.data.id} resData={res}/>
-      })
-    }
-
-    
-  </div>
     
   </>
 
   );
 }
 
+const Main=()=>{
+  return (
+    
+  <div id="restaurants">
+  {
+    reslist.map((res)=>{
+      return <RestaurantCard key={res.data.id} resData={res}/>
+    })
+  }
+
+  
+</div>
+  );
+}
+
+
+const Applayout=()=>{
+  return (
+    <>
+    <Header/>
+    <Main/></>
+
+  );
+}
+
+
 const root=ReactDOM.createRoot(document.getElementById('root'));
 
-root.render(<Header/>);
+root.render(<Applayout/>);
