@@ -1,5 +1,12 @@
 const Shimmer=()=>{
-    return (<h1>shimmer loading...............    </h1>);
+    return (
+        <div id="shimmers">
+            <h1 >loading shimmers</h1>
+            
+
+        </div>
+
+    )
 }
 
 export default Shimmer;

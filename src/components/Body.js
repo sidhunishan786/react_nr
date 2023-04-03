@@ -27,15 +27,14 @@ const Body=()=>{
   async function getRestaurants() {
     const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7512305&lng=76.7583714&page_type=DESKTOP_WEB_LISTING");
     const json=await data.json();
-    json=reslist;
-    console.log(json);  
+     
     setlistOfallRes(json?.data?.cards[2]?.data?.data?.cards);  
     setlistOfFiltRes(json?.data?.cards[2]?.data?.data?.cards);  
     
   }
   // if reslist is empty =>shimmer ui
   // if reslist not empty render data
-  if(listOfFiltRes.length===0){
+  if(listOfFiltRes.length===0 && listOfallRes.length===0){
     return <Shimmer/>;
   }
 
@@ -57,16 +56,15 @@ const Body=()=>{
                const filteredList=listOfallRes.filter(res=>
                 res.data.avgRating>4);
                 setlistOfFiltRes(filteredList);
+                
             
 
         }} id="filter-btn"> Top rated Restaurants</button> </div>
         
       
     <div id="restaurants">
-    {
-      (listOfFiltRes?.length===0 && listOfallRes?.length===0)?<h1>NO restaurant found!!!!!!!!!!!!</h1>:
-        
-      listOfFiltRes.map((res)=>{
+    {        
+          (listOfFiltRes?.length===0)?(<h1>NO restaurant found!!!!!!!!!!!!</h1>): listOfFiltRes.map((res)=>{
         return <RestaurantCard key={res.data.id} resData={res}/>
       })
     }
