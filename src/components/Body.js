@@ -7,13 +7,10 @@ function filterdata(searchText,restaurants){
   const filterData=restaurants.filter((resta)=> resta.data.name.toLowerCase().includes(searchText.toLowerCase()));
   console.log(filterData.length);
 
-  
   return filterData;
 
 
 }
-
-
 
 
 const Body=()=>{
@@ -38,11 +35,7 @@ const Body=()=>{
   }
   // if reslist is empty =>shimmer ui
   // if reslist not empty render data
-  if(listOfFiltRes?.length===0 && listOfallRes?.length===0){
-    return (
-      <h1>NO restaurant found!!!!!!!!!!!!</h1>
-    );
-  }
+  
 
     return ( listOfallRes.length===0)?( <Shimmer/>): (
         <>
@@ -69,6 +62,8 @@ const Body=()=>{
       
     <div id="restaurants">
     {
+      (listOfFiltRes?.length===0 && listOfallRes?.length===0)?<h1>NO restaurant found!!!!!!!!!!!!</h1>:
+        
       listOfFiltRes.map((res)=>{
         return <RestaurantCard key={res.data.id} resData={res}/>
       })
