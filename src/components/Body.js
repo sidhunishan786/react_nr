@@ -7,9 +7,8 @@ function filterdata(searchText,restaurants){
   const filterData=restaurants.filter((resta)=> resta.data.name.toLowerCase().includes(searchText.toLowerCase()));
   console.log(filterData.length);
 
+
   return filterData;
-
-
 }
 
 
@@ -28,6 +27,7 @@ const Body=()=>{
   async function getRestaurants() {
     const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7512305&lng=76.7583714&page_type=DESKTOP_WEB_LISTING");
     const json=await data.json();
+    json=reslist;
     console.log(json);  
     setlistOfallRes(json?.data?.cards[2]?.data?.data?.cards);  
     setlistOfFiltRes(json?.data?.cards[2]?.data?.data?.cards);  
@@ -35,9 +35,11 @@ const Body=()=>{
   }
   // if reslist is empty =>shimmer ui
   // if reslist not empty render data
-  
+  if(listOfFiltRes.length===0){
+    return <Shimmer/>;
+  }
 
-    return ( listOfallRes.length===0)?( <Shimmer/>): (
+    return (
         <>
         <input id="search" placeholder="name" value={searchText} onChange={(e)=>{
           setSearchText(e.target.value);
