@@ -32,11 +32,11 @@
     height: 50%;
 }
 #rescard{
-    width: 200px;
+    width: 235px;
     height: 300px;
     padding: 5px;
     margin-bottom: 50px;
-    overflow-y: scroll;
+   
     transition: all 0.3s ease-out;
     
   
@@ -52,5 +52,5 @@
 #restaurants{
    display: flex;
    flex-wrap: wrap;
-   justify-content: space-between;
+
 }
