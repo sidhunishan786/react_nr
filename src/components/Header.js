@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { LOGO_URL,RES_LOGO_s } from "../utils/constants";
 
+import { Link } from "react-router-dom";
+
+
 function checklogin() {
   // is logged in function 
   return true;  
@@ -15,12 +18,13 @@ const Header=()=>{
       <>
       
       <div id="header">
-        <img id="logo" src={RES_LOGO_s}></img>
+        <a href="/"><img id="logo" src={RES_LOGO_s}></img></a>
+        
         
      <ul id="navg">
-      <li>home</li>
-      <li>contact</li>
-      <li>about</li>
+     <li><Link to="/">home</Link></li>
+     <li><Link to="/contact">contact</Link></li>
+     <li><Link to="/about">about</Link></li>
       
       </ul>  
 

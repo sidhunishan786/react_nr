@@ -1,9 +1,8 @@
 const Shimmer=()=>{
     return (
         <div id="shimmers">
-            <h1 >loading shimmers</h1>
-            
-
+           
+           {Array(10).fill("").map((e)=>(<div key={e} id="shimmersCard"></div>))}
         </div>
 
     )

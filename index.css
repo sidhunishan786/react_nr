@@ -56,3 +56,24 @@
 
 }
 
+#shimmers{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+#shimmers:hover{
+    transition: linear-gradient(45deg, yellow, purple, red, blue);
+    
+}
+#shimmersCard{
+    
+    animation: shimmer 2.5s infinite;
+    background-color: grey;
+    transition: all;
+    border: 1px solid black;
+    width: 235px;
+    height: 300px;
+    margin: 10px;
+
+    
+}

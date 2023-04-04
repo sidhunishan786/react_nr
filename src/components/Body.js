@@ -2,13 +2,15 @@ import RestaurantCard from "./RestaurantCard";
 import { useState,useEffect } from "react";
 import reslist from "../utils/mockData";
 import Shimmer from "./Shimmer";
+
+
+
 function filterdata(searchText,restaurants){
 
   const filterData=restaurants.filter((resta)=> resta.data.name.toLowerCase().includes(searchText.toLowerCase()));
   console.log(filterData.length);
-
-
   return filterData;
+  
 }
 
 
@@ -16,6 +18,7 @@ const Body=()=>{
   const [listOfallRes,setlistOfallRes]=useState([]);
   const [listOfFiltRes,setlistOfFiltRes]=useState([]);
   const [searchText,setSearchText]=useState("");
+
 
 
   useEffect(()=>{
