@@ -3,6 +3,7 @@ import { useState,useEffect } from "react";
 import reslist from "../utils/mockData";
 import Shimmer from "./Shimmer";
 
+import { Link } from "react-router-dom";
 
 
 function filterdata(searchText,restaurants){
@@ -68,7 +69,7 @@ const Body=()=>{
     <div id="restaurants">
     {        
           (listOfFiltRes?.length===0)?(<h1>NO restaurant found!!!!!!!!!!!!</h1>): listOfFiltRes.map((res)=>{
-        return <RestaurantCard key={res.data.id} resData={res}/>
+        return (<Link to={"/restaurant/"+res.data.id} key={res.data.id}><RestaurantCard key={res.data.id} resData={res}/> </Link> )
       })
     }
     
