@@ -8,31 +8,32 @@ const RestaurantMenu=()=>{
     
     const {resid}= params;
 
+
     const [restaurant,setRestaurant] =useState({});
 
+    
+
+    async function getRestaurantInfo(){
+
+        const data =await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=30.749519850835757&lng=76.75947166979313&restaurantId="+resid+"&submitAction=ENTER");
+        const json=await data.json();
+        console.log(json.data);
+        setRestaurant((json.data));
+        
+
+    }
     useEffect(()=>{
         getRestaurantInfo();
 
-
     },[]);
 
-    async function getRestaurantInfo(){
-        const data =await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=30.749519850835757&lng=76.75947166979313&restaurantId="+resid);
-        const json=await data.json();
-        console.log(json);
-        setRestaurant(json.data);
-
-
-    }
-
-    return (
+    return restaurant.cards? (
         <div>
             <h1>Res id:{resid}</h1>
-            <h2>{restaurant.name}</h2>
-            
-
+            <h2>res name{restaurant.cards[0].card.card.info.name}</h2>
+            <img src={`${CDN_URL}${restaurant.cards[0].card.card.info.cloudinaryImageId}`}></img>
         </div>
-    );
+    ):<h1>Loading   </h1>;
 }
 
 export default RestaurantMenu;
