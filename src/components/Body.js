@@ -5,15 +5,9 @@ import Shimmer from "./Shimmer";
 
 import { Link } from "react-router-dom";
 
+import { filterdata } from "../utils/Helper";
 
-function filterdata(searchText,restaurants){
-
-  const filterData=restaurants.filter((resta)=> resta.data.name.toLowerCase().includes(searchText.toLowerCase()));
-  console.log(filterData.length);
-  return filterData;
-  
-}
-
+import useOnline from "../utils/useOnline";
 
 const Body=()=>{
   const [listOfallRes,setlistOfallRes]=useState([]);
@@ -38,6 +32,10 @@ const Body=()=>{
   }
   // if reslist is empty =>shimmer ui
   // if reslist not empty render data
+  const offline=useOnline();
+  if(!offline){
+    return (<h1>!!!!!!!!!!!!!!!!!!!please check your internet connection</h1>);
+  }
   if(listOfFiltRes.length===0 && listOfallRes.length===0){
     return <Shimmer/>;
   }

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 
 function checklogin() {
-  // is logged in function 
+
   return true;  
 }
 
@@ -25,7 +25,7 @@ const Header=()=>{
      <li><Link to="/">home</Link></li>
      <li><Link to="/contact">contact</Link></li>
      <li><Link to="/about">about</Link></li>
-      
+      <li><Link to="/instamart">instamart</Link></li>
       </ul>  
 
       <img id="user" src={LOGO_URL}/>
