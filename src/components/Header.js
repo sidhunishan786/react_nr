@@ -17,18 +17,18 @@ const Header=()=>{
     return (
       <>
       
-      <div id="header">
-        <a href="/"><img id="logo" src={RES_LOGO_s}></img></a>
+      <div className="flex space-y-7 justify-between bg-lime-400 shadow-inner sm:bg-blue-600">
+        <a href="/"><img className="h-28 px-2 py-2" id="logo" src={RES_LOGO_s}></img></a>
         
         
-     <ul id="navg">
-     <li><Link to="/">home</Link></li>
-     <li><Link to="/contact">contact</Link></li>
-     <li><Link to="/about">about</Link></li>
-      <li><Link to="/instamart">instamart</Link></li>
+     <ul className="flex py-10 ">
+     <li className="px-10"><Link to="/">home</Link></li>
+     <li className="px-10"><Link to="/contact">contact</Link></li>
+     <li className="px-10"><Link to="/about">about</Link></li>
+      <li className="px-10"><Link to="/instamart">instamart</Link></li>
       </ul>  
 
-      <img id="user" src={LOGO_URL}/>
+      <img className="h-20" id="user" src={LOGO_URL}/>
 
       {login?<button id="login" onClick={()=> setlogin(false)}>login</button>: <button id="logout" onClick={()=>setlogin(true)}>logout</button>}
   

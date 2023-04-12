@@ -42,12 +42,12 @@ const Body=()=>{
 
     return (
         <>
-        <input id="search" placeholder="name" value={searchText} onChange={(e)=>{
+        <input className="border-8 focus:bg-green-300" placeholder="name" value={searchText} onChange={(e)=>{
           setSearchText(e.target.value);
         }
         }>
         </input>
-        <button onClick={()=>{
+        <button className="p-5 m-5 bg-purple-500 border-2 border-opacity-100 text-slate-100 rounded-lg  hover:bg-lime-700" onClick={()=>{
           const fil_res_list=filterdata(searchText,listOfallRes);
     
           setlistOfFiltRes(fil_res_list);
@@ -64,7 +64,7 @@ const Body=()=>{
         }} id="filter-btn"> Top rated Restaurants</button> </div>
         
       
-    <div id="restaurants">
+    <div className="flex flex-wrap p-5 justify-between bg-purple-700">
     {        
           (listOfFiltRes?.length===0)?(<h1>NO restaurant found!!!!!!!!!!!!</h1>): listOfFiltRes.map((res)=>{
         return (<Link to={"/restaurant/"+res.data.id} key={res.data.id}><RestaurantCard key={res.data.id} resData={res}/> </Link> )

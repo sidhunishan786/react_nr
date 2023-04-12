@@ -12,7 +12,7 @@ import Contact from "./components/Contact";
 import Profile from "./components/Profile";
 import Shimmer from "./components/Shimmer";
 import { createBrowserRouter ,RouterProvider,Outlet} from "react-router-dom";
-
+import "../index.css"
 import RestaurantMenu from "./components/RestaurantMenu";
 //import Instamart from "./components/Instamart";
 const Instamart=lazy(()=>{return import("./components/Instamart.js")});
