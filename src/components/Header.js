@@ -3,6 +3,8 @@ import { LOGO_URL,RES_LOGO_s } from "../utils/constants";
 
 import { Link } from "react-router-dom";
 
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 
 function checklogin() {
 
@@ -13,6 +15,7 @@ const Header=()=>{
   const [searchText,setSearchText]=useState();
   const [login,setlogin]=useState(checklogin());
 
+  const {user}=useContext(UserContext)
 
     return (
       <>
@@ -26,10 +29,13 @@ const Header=()=>{
      <li className="px-10"><Link to="/contact">contact</Link></li>
      <li className="px-10"><Link to="/about">about</Link></li>
       <li className="px-10"><Link to="/instamart">instamart</Link></li>
+      <li className="px-10"><Link to="/cart">cart</Link></li>
       </ul>  
 
       <img className="h-20" id="user" src={LOGO_URL}/>
-
+      <h1 className="border border-red-500 text-green-600 h-8 bg-purple-500">
+        {user.name}
+        </h1>
       {login?<button id="login" onClick={()=> setlogin(false)}>login</button>: <button id="logout" onClick={()=>setlogin(true)}>logout</button>}
   
     </div>

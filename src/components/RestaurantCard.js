@@ -1,8 +1,10 @@
+import UserContext from "../utils/UserContext";
 import { CDN_URL } from "../utils/constants";
 
-
+import { useContext } from "react";
 const RestaurantCard=(props)=>{
     const {resData}=props;
+    const {user}=useContext(UserContext)
   
     return (
       
@@ -14,8 +16,7 @@ const RestaurantCard=(props)=>{
       <h5 > ₹{resData.data.costForTwo/100} is cost for two </h5>
   
       <h5 >{resData.data.cuisines}</h5>
-  
-  
+      <span className="border-8 border-rose-300">{user.name}</span>
       </div>
     )
   

@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React, { Children, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { lazy } from "react";
 import Header from "./components/Header"
@@ -15,15 +15,35 @@ import { createBrowserRouter ,RouterProvider,Outlet} from "react-router-dom";
 import "../index.css"
 import RestaurantMenu from "./components/RestaurantMenu";
 //import Instamart from "./components/Instamart";
+import { useContext } from "react";
+import UserContext from "./utils/UserContext";
+import Cart from "./components/Cart";
 const Instamart=lazy(()=>{return import("./components/Instamart.js")});
 //ondemand loading 
 const Applayout=()=>{
+  const [user,setUser]=useState({
+    user:{
+      name:"nishan singh",
+      email: "sidhuisds@sdf.com"
+
+    }
+  });
+
   return (
     <>
-
+    <UserContext.Provider value={
+      {
+        user:user,
+        setUser:setUser
+        }
+      
+    }>
     <Header/>
     <Outlet/>
     <Footer/>
+
+    </UserContext.Provider>
+
     
     </>
 
@@ -61,7 +81,12 @@ const appRouter=createBrowserRouter([
       {
         path: "/instamart",
         element:<Suspense fallback={<Shimmer/>}><Instamart/></Suspense> ,
+      },
+      {
+        path: "/cart",
+        element:<Cart/>,
       }
+      
 
 
     ]

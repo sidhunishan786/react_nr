@@ -1,8 +1,8 @@
 import RestaurantCard from "./RestaurantCard";
-import { useState,useEffect } from "react";
+import { useState,useEffect ,useContext} from "react";
 import reslist from "../utils/mockData";
 import Shimmer from "./Shimmer";
-
+import UserContext from "../utils/UserContext";
 import { Link } from "react-router-dom";
 
 import { filterdata } from "../utils/Helper";
@@ -13,6 +13,7 @@ const Body=()=>{
   const [listOfallRes,setlistOfallRes]=useState([]);
   const [listOfFiltRes,setlistOfFiltRes]=useState([]);
   const [searchText,setSearchText]=useState("");
+  const {user,setUser}=useContext(UserContext);
 
 
 
@@ -62,6 +63,10 @@ const Body=()=>{
             
 
         }} id="filter-btn"> Top rated Restaurants</button> </div>
+
+        <input className="border-2 border-red-500" value={user.name} onChange={(e)=>setUser({name:e.target.value})}>
+
+        </input>
         
       
     <div className="flex flex-wrap p-5 justify-between bg-purple-700">
