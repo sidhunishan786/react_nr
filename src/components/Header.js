@@ -36,7 +36,7 @@ const Header=()=>{
      <li className="px-10"><Link to="/contact">contact</Link></li>
      <li className="px-10"><Link to="/about">about</Link></li>
       <li className="px-10"><Link to="/instamart">instamart</Link></li>
-      <li className="px-10" data-testid="cart"><Link to="/cart">cart-{cartItems.length}items</Link></li>
+      <li className="px-10" ><Link to="/cart" data-testid="cart">cart-{cartItems.length}items</Link></li>
       </ul> 
 
 
