@@ -19,6 +19,7 @@ import { useContext } from "react";
 import UserContext from "./utils/UserContext";
 import Cart from "./components/Cart";
 import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 
 const Instamart=lazy(()=>{return import("./components/Instamart.js")});
 //ondemand loading 
