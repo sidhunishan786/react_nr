@@ -14,10 +14,12 @@ import Shimmer from "./components/Shimmer";
 import { createBrowserRouter ,RouterProvider,Outlet} from "react-router-dom";
 import "../index.css"
 import RestaurantMenu from "./components/RestaurantMenu";
-//import Instamart from "./components/Instamart";
+import store from "./utils/store";
 import { useContext } from "react";
 import UserContext from "./utils/UserContext";
 import Cart from "./components/Cart";
+import { Provider } from "react-redux";
+
 const Instamart=lazy(()=>{return import("./components/Instamart.js")});
 //ondemand loading 
 const Applayout=()=>{
@@ -31,6 +33,9 @@ const Applayout=()=>{
 
   return (
     <>
+    <Provider store={store}>
+
+    
     <UserContext.Provider value={
       {
         user:user,
@@ -43,7 +48,7 @@ const Applayout=()=>{
     <Footer/>
 
     </UserContext.Provider>
-
+    </Provider>
     
     </>
 

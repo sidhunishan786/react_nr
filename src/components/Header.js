@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { LOGO_URL,RES_LOGO_s } from "../utils/constants";
 
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 import { useContext } from "react";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
+import store from "../utils/store";
+
 
 function checklogin() {
 
@@ -15,7 +18,10 @@ const Header=()=>{
   const [searchText,setSearchText]=useState();
   const [login,setlogin]=useState(checklogin());
 
-  const {user}=useContext(UserContext)
+  const {user}=useContext(UserContext);
+  const cartItems=useSelector(store=> store.cart.items);
+
+
 
     return (
       <>
@@ -29,7 +35,7 @@ const Header=()=>{
      <li className="px-10"><Link to="/contact">contact</Link></li>
      <li className="px-10"><Link to="/about">about</Link></li>
       <li className="px-10"><Link to="/instamart">instamart</Link></li>
-      <li className="px-10"><Link to="/cart">cart</Link></li>
+      <li className="px-10"><Link to="/cart">cart-{cartItems.length}items</Link></li>
       </ul>  
 
       <img className="h-20" id="user" src={LOGO_URL}/>
